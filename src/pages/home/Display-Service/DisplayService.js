@@ -1,7 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import { Link, useLoaderData } from "react-router-dom";
+import Loading from "../../../layout/Loading/Loading";
+import SingleCard from "./SingleCard";
 
 const DisplayService = () => {
+  const items = useLoaderData();
+
   const {
     data: servicesName,
     isLoading,
@@ -14,8 +19,42 @@ const DisplayService = () => {
       return data;
     },
   });
-  console.log(servicesName);
-  return <div></div>;
+
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
+  return (
+    <div className="my-20">
+      <div className="w-8/12 m-auto">
+        <div className="grid grid-cols-2">
+          <div className="text-left">
+            <span className="py-1 px-2 bg-sky-50 text-sky-800">
+              Our Projects
+            </span>
+            <h2 className="mt-4 text-5xl font-semibold text-blue-900">
+              Some of our finest work.
+            </h2>
+          </div>
+          <div className=" flex justify-center items-end ">
+            {servicesName.map((service) => (
+              <button
+                className="ml-5 border shadow-sm border-purple-500 hover:bg-purple-500 px-2 py-2 rounded-md font-semibold hover:text-white"
+                key={service._id}
+              >
+                <Link to={`/home/${service.name}`}>{service.name}</Link>
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className=" grid grid-cols-3 gap-28 py-28">
+          {items?.map((item) => (
+            <SingleCard item={item} key={item._id}></SingleCard>
+          ))}
+        </div>
+      </div>
+      <div></div>
+    </div>
+  );
 };
 
 export default DisplayService;

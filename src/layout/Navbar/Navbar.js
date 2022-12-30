@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../../assests/logo/onlinelogomaker-123022-1626-0618-2000-transparent.png";
 
 const Navbar = () => {
   const user = 1;
-  const logo = 1;
   return (
     <div>
       <div className="bg-gradient-to-l from-sky-200 via-sky-300 to-sky-200 shadow-md">

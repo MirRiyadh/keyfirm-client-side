@@ -10,31 +10,37 @@ import icon6 from "../../../assests/icons/bar-chart.png";
 const AllServices = () => {
   const services = [
     {
+      id: 1,
       img: icon1,
       name: "Graphics Desing",
       description: "ok",
     },
     {
+      id: 2,
       img: icon2,
       name: "Web Development",
       description: "ok",
     },
     {
+      id: 3,
       img: icon3,
       name: "Online Marketing",
       description: "ok",
     },
     {
+      id: 4,
       img: icon4,
       name: "Content Writing",
       description: "ok",
     },
     {
+      id: 5,
       img: icon5,
       name: "UX/UI",
       description: "ok",
     },
     {
+      id: 6,
       img: icon6,
       name: "Chart Desing",
       description: "ok",
@@ -57,7 +63,7 @@ const AllServices = () => {
 
       <div className="grid grid-cols-3 lg:w-10/12 2xl:w-8/12 m-auto">
         {services.map((service) => (
-          <SingleService service={service}></SingleService>
+          <SingleService service={service} key={service.id}></SingleService>
         ))}
       </div>
     </div>
