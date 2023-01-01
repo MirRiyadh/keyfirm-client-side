@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import Loading from "../../../layout/Loading/Loading";
+import HomeCard from "./HomeCard";
 import SingleCard from "./SingleCard";
 
 const DisplayService = () => {
@@ -20,7 +21,20 @@ const DisplayService = () => {
     },
   });
 
+  const { data: homeServices, isLoadingTwo } = useQuery({
+    queryKey: ["homeServices"],
+    queryFn: async () => {
+      const res = await fetch(`http://localhost:5000`);
+      const data = await res.json();
+      return data;
+    },
+  });
+
   if (isLoading) {
+    return <Loading></Loading>;
+  }
+
+  if (isLoadingTwo) {
     return <Loading></Loading>;
   }
   return (
@@ -46,11 +60,26 @@ const DisplayService = () => {
             ))}
           </div>
         </div>
-        <div className=" grid grid-cols-3 gap-28 py-28">
-          {items?.map((item) => (
-            <SingleCard item={item} key={item._id}></SingleCard>
-          ))}
-        </div>
+        {items ? (
+          <>
+            <div className=" grid grid-cols-3 gap-28 py-28">
+              {items?.map((item) => (
+                <SingleCard item={item} key={item._id}></SingleCard>
+              ))}
+            </div>
+          </>
+        ) : (
+          <>
+            <div className=" grid grid-cols-3 gap-28 py-28">
+              {homeServices?.map((homeService) => (
+                <HomeCard
+                  homeService={homeService}
+                  key={homeService._id}
+                ></HomeCard>
+              ))}
+            </div>
+          </>
+        )}
       </div>
       <div></div>
     </div>

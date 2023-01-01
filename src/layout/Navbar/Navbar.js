@@ -34,7 +34,7 @@ const Navbar = () => {
                   <Link to="/">Home</Link>
                 </li>
                 <li>
-                  <Link to="/courses">Services</Link>
+                  <Link to="/services">Services</Link>
                 </li>
                 <li>
                   <Link to="/about-us">About</Link>
@@ -43,7 +43,7 @@ const Navbar = () => {
                   <Link to="/blog">Blog</Link>
                 </li>
                 <li>
-                  <Link to="/faq">FAQ</Link>
+                  <Link to="/contact">Contact</Link>
                 </li>
                 <hr />
 
@@ -80,7 +80,7 @@ const Navbar = () => {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/courses">Services</Link>
+                <Link to="/services">Services</Link>
               </li>
               <li>
                 <Link to="/about-us">About</Link>
@@ -89,7 +89,7 @@ const Navbar = () => {
                 <Link to="/blog">Blog</Link>
               </li>
               <li>
-                <Link to="/faq">FAQ</Link>
+                <Link to="/contact">Contact</Link>
               </li>
               {/* {user?.uid ? (
                 <></>
