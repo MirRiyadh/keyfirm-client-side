@@ -37,6 +37,7 @@ const DisplayService = () => {
   if (isLoadingTwo) {
     return <Loading></Loading>;
   }
+
   return (
     <div className="my-20">
       <div className="w-8/12 m-auto">
@@ -60,6 +61,7 @@ const DisplayService = () => {
             ))}
           </div>
         </div>
+
         {items ? (
           <>
             <div className=" grid grid-cols-3 gap-28 py-28">

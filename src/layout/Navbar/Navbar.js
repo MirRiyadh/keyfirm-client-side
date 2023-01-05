@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assests/logo/onlinelogomaker-123022-1626-0618-2000-transparent.png";
+import { AuthContext } from "../../contexts/AuthProvider";
+import { FaUser } from "react-icons/fa";
+import "./Navbar.css";
 
 const Navbar = () => {
-  const user = 1;
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
+
+  const handleLogout = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => {
+        console.error(error);
+      });
+  };
   return (
     <div>
       <div className="bg-gradient-to-l from-sky-200 via-sky-300 to-sky-200 shadow-md">
@@ -47,10 +59,10 @@ const Navbar = () => {
                 </li>
                 <hr />
 
-                {/* {user?.uid ? (
+                {user?.uid ? (
                   <div className="mt-2">
                     <button
-                      // onClick={handleLogout}
+                      onClick={handleLogout}
                       className="px-4 py-1 bg-slate-200 rounded-md hover:bg-slate-300 font-semibold"
                     >
                       Logout
@@ -65,7 +77,7 @@ const Navbar = () => {
                       <Link to="/register">Register</Link>
                     </li>
                   </>
-                )} */}
+                )}
               </ul>
             </div>
             <Link to="/" className="btn btn-ghost normal-case text-xl pl-0">
@@ -91,13 +103,13 @@ const Navbar = () => {
               <li>
                 <Link to="/contact">Contact</Link>
               </li>
-              {/* {user?.uid ? (
+              {user?.uid ? (
                 <></>
               ) : (
                 <li>
                   <Link to="/register">Register</Link>
                 </li>
-              )} */}
+              )}
             </ul>
           </div>
 
@@ -126,7 +138,7 @@ const Navbar = () => {
               <>
                 <div>
                   <button
-                    // onClick={handleLogout}
+                    onClick={handleLogout}
                     className="px-2 py-1 bg-slate-100 rounded-md hover:bg-slate-300 font-semibold"
                   >
                     Logout
@@ -150,7 +162,9 @@ const Navbar = () => {
                     Login
                   </button>
                 </Link>
-                <div>{/* <FaUser></FaUser> */}</div>
+                <div>
+                  <FaUser></FaUser>
+                </div>
               </>
             )}
           </div>

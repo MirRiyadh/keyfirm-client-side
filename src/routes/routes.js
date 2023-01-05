@@ -5,6 +5,9 @@ import AllServices from "../pages/AllServices/AllServices";
 import Contact from "../pages/contact/Contact";
 import ErrorPage from "../pages/errorPage/ErrorPage";
 import Home from "../pages/home/Home/Home";
+import Login from "../pages/Login/Login";
+import Register from "../pages/Register/Register";
+import ServiceDetails from "../pages/Service-Details/ServiceDetails";
 import Services from "../pages/services/Services";
 
 export const router = createBrowserRouter([
@@ -23,6 +26,12 @@ export const router = createBrowserRouter([
           fetch(`http://localhost:5000/home/${params.name}`),
       },
       {
+        path: "details/:id",
+        element: <ServiceDetails></ServiceDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/details/${params.id}`),
+      },
+      {
         path: "/services",
         element: <Services></Services>,
         loader: () => fetch(`http://localhost:5000`),
@@ -36,6 +45,14 @@ export const router = createBrowserRouter([
       {
         path: "/about",
         element: <About></About>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
       },
       {
         path: "/contact",
