@@ -41,8 +41,6 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     const fullName = firstName + " " + lastName;
-    const option = form.option.value;
-    console.log(option);
 
     const formData = new FormData();
     formData.append("image", photo);
@@ -58,12 +56,12 @@ const Register = () => {
           const user = {
             name: fullName,
             email: email,
-            user_role: option,
+            // user_role: option,
             image: data.data.display_url,
           };
 
           // save user information
-          fetch("https://react-assignment-twelve-server.vercel.app/users", {
+          fetch("http://localhost:5000/users", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -125,11 +123,11 @@ const Register = () => {
         const users = {
           name: user.displayName,
           email: user.email,
-          user_role: "Buyer",
+          // user_role: "Buyer",
           image: user.photoURL,
         };
 
-        fetch("https://react-assignment-twelve-server.vercel.app/users", {
+        fetch("http://localhost:5000/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -162,11 +160,11 @@ const Register = () => {
         const users = {
           name: user.displayName,
           email: user.email,
-          user_role: "Buyer",
+          // user_role: "Buyer",
           image: user.photoURL,
         };
 
-        fetch("https://react-assignment-twelve-server.vercel.app/users", {
+        fetch("http://localhost:5000/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -199,11 +197,11 @@ const Register = () => {
         const users = {
           name: user.displayName,
           email: user.email,
-          user_role: "Buyer",
+          // user_role: "Buyer",
           image: user.photoURL,
         };
 
-        fetch("https://react-assignment-twelve-server.vercel.app/users", {
+        fetch("http://localhost:5000/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -322,12 +320,12 @@ const Register = () => {
               )}
             </div>
 
-            <div className="my-4">
+            {/* <div className="my-4">
               <select name="option" className="select select-bordered w-full ">
                 <option defaultValue="Buyer">Buyer</option>
                 <option>Seller</option>
               </select>
-            </div>
+            </div> */}
 
             <div className="text-left">
               <span className="text-red-600 text-xs">{error}</span>

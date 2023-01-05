@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import banner1 from "../../../assests/banner/keystoke-image-3.jpg";
 
 const SingleService = ({ service }) => {
-  const { img, name } = service;
+  const { img, name, link } = service;
   return (
     <div className="">
       <div className="pb-2 pt-28">
@@ -54,7 +55,7 @@ const SingleService = ({ service }) => {
                   </svg>
                 </span>
                 <span className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">
-                  View Projects
+                  <Link to={link}>View Projects</Link>
                 </span>
               </a>
             </button>

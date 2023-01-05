@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main/Main";
 import About from "../pages/About/About";
 import AllServices from "../pages/AllServices/AllServices";
+import Checkout from "../pages/Checkout/Checkout";
 import Contact from "../pages/contact/Contact";
 import ErrorPage from "../pages/errorPage/ErrorPage";
 import Home from "../pages/home/Home/Home";
@@ -57,6 +58,12 @@ export const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact></Contact>,
+      },
+      {
+        path: "/checkout/:id",
+        element: <Checkout></Checkout>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/checkout/${params.id}`),
       },
     ],
   },

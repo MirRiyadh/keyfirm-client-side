@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { BsStarFill } from "react-icons/bs";
 
 const ServiceDetails = () => {
@@ -30,9 +30,12 @@ const ServiceDetails = () => {
                 Date: {project.publish_date}
               </p>
               <div className="flex justify-between">
-                <span className="bg-violet-400 px-3 py-2 font-semibold text-white shadow-md rounded-md">
-                  Downlaoded {project.like}
-                </span>
+                <Link
+                  to={`/checkout/${project._id}`}
+                  className="bg-violet-400 px-3 py-2 font-semibold text-white shadow-md rounded-md"
+                >
+                  Buy Now ${project.price}
+                </Link>
                 <button className="bg-sky-500 hover:bg-sky-600 px-3 py-2 font-semibold text-white shadow-md rounded-md">
                   <a href={project.live_link} target="_blank">
                     View Project

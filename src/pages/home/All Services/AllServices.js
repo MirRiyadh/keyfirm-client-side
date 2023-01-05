@@ -14,36 +14,42 @@ const AllServices = () => {
       img: icon1,
       name: "Graphics Desing",
       description: "ok",
+      link: "services/Graphics",
     },
     {
       id: 2,
       img: icon2,
       name: "Web Development",
       description: "ok",
+      link: "services/Web",
     },
     {
       id: 3,
       img: icon3,
       name: "Online Marketing",
       description: "ok",
+      link: "services/Marketing",
     },
     {
       id: 4,
       img: icon4,
       name: "Content Writing",
       description: "ok",
+      link: "services/Contents",
     },
     {
       id: 5,
       img: icon5,
       name: "UX/UI",
       description: "ok",
+      link: "/services",
     },
     {
       id: 6,
       img: icon6,
       name: "Chart Desing",
       description: "ok",
+      link: "services/Charts",
     },
   ];
   return (
