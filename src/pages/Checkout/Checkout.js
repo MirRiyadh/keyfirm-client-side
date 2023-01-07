@@ -1,5 +1,10 @@
+import { loadStripe } from "@stripe/stripe-js";
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+
+const stripePromise = loadStripe(
+  "pk_test_51M5ucUAdED2dE9uUnjGFgHgk0L6Ff8dmrIlfmxoeUyDxrdzXIVuDCaXvvTcaAUHTKNRfEpJPnM7PbRag87XPdpvJ00jwePua73"
+);
 
 const Checkout = () => {
   const payment = useLoaderData();
